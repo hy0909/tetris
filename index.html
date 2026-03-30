@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Tetris</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Arcade Mission</p>
+          <h1>Neon Tetris</h1>
+          <p class="hero-text">
+            브라우저에서 바로 플레이하는 미션형 테트리스입니다. 줄을 지우고
+            점수를 올리면서 속도를 버텨보세요.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="start-button" class="primary-button" type="button">
+            게임 시작
+          </button>
+          <button id="pause-button" class="secondary-button" type="button">
+            일시정지
+          </button>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="board-panel">
+          <div class="board-frame">
+            <canvas
+              id="tetris"
+              class="game-canvas"
+              width="300"
+              height="600"
+              aria-label="테트리스 게임판"
+            ></canvas>
+            <div id="overlay" class="overlay">
+              <div class="overlay-card">
+                <p class="overlay-label">Ready</p>
+                <h2 id="overlay-title">게임을 시작해보세요</h2>
+                <p id="overlay-text">
+                  방향키로 이동하고, 위쪽 방향키로 회전할 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="stat-card">
+            <p class="card-label">Status</p>
+            <div class="stat-grid">
+              <div>
+                <span class="stat-name">점수</span>
+                <strong id="score">0</strong>
+              </div>
+              <div>
+                <span class="stat-name">라인</span>
+                <strong id="lines">0</strong>
+              </div>
+              <div>
+                <span class="stat-name">레벨</span>
+                <strong id="level">1</strong>
+              </div>
+              <div>
+                <span class="stat-name">최고 점수</span>
+                <strong id="best">0</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="stat-card next-card">
+            <p class="card-label">Next Piece</p>
+            <canvas
+              id="preview"
+              class="preview-canvas"
+              width="160"
+              height="160"
+              aria-label="다음 블록 미리보기"
+            ></canvas>
+          </section>
+
+          <section class="stat-card">
+            <p class="card-label">Controls</p>
+            <ul class="controls-list">
+              <li><span>좌우 방향키</span><strong>이동</strong></li>
+              <li><span>위 방향키 / X</span><strong>회전</strong></li>
+              <li><span>아래 방향키</span><strong>빠르게 내리기</strong></li>
+              <li><span>스페이스</span><strong>하드 드롭</strong></li>
+              <li><span>P</span><strong>일시정지</strong></li>
+            </ul>
+          </section>
+
+          <section class="touch-panel" aria-label="터치 컨트롤">
+            <button data-action="left" type="button">←</button>
+            <button data-action="rotate" type="button">⟳</button>
+            <button data-action="right" type="button">→</button>
+            <button data-action="down" type="button">↓</button>
+            <button data-action="drop" type="button">DROP</button>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
